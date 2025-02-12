@@ -33,6 +33,9 @@ RUN apt-get update -qq && \
     apt-get install --no-install-recommends -y build-essential git pkg-config && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
+# Install system dependencies like libyaml
+RUN apt-get update -qq && apt-get install -y libyaml-dev
+
 # Install application gems
 COPY Gemfile Gemfile.lock ./
 RUN bundle install && \
@@ -44,6 +47,12 @@ COPY . .
 
 # Precompile bootsnap code for faster boot times
 RUN bundle exec bootsnap precompile app/ lib/
+
+# List contents of ./bin to check for rails
+RUN ls -l ./bin
+
+# Make rails executable
+RUN chmod -R +x ./bin
 
 # Precompiling assets for production without requiring secret RAILS_MASTER_KEY
 RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
