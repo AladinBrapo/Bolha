@@ -1,5 +1,5 @@
 class ListingsController < ApplicationController
-    before_action :authenticate_user!, except: [:index, :show]  # Ensure only authenticated users can create, edit, or delete listings
+    before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]  # Ensure only authenticated users can create, edit, or delete listings
 
     def index
         @listings = Listing.all
