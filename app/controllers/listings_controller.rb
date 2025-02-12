@@ -44,7 +44,9 @@ class ListingsController < ApplicationController
     private
 
     def listing_params
-        params.require(:listing).permit(:title, :description, :price, :category_id, :image)
+        params.require(:listing).permit(:title, :description, :price, :category_id, :image).tap do |whitelisted|
+            whitelisted[:price] = whitelisted[:price].to_f if whitelisted[:price].present?
+        end
     end
 end
   
