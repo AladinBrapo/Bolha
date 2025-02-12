@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for(:title) || "Bolha 3" %></title>
+    <title><%= content_for(:title) || "Bolha" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
@@ -23,6 +23,17 @@
   </head>
 
   <body>
+  <header>
+    <nav>
+      <% if user_signed_in? %>
+        <p>Welcome, <%= current_user.email %>!</p>
+        <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%= link_to 'Login', new_user_session_path %> | 
+        <%= link_to 'Sign Up', new_user_registration_path %>
+      <% end %>
+    </nav>
+  </header>
     <%= yield %>
   </body>
 </html>
