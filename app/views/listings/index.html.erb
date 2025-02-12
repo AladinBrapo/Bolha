@@ -1,0 +1,13 @@
+<h1>All Listings</h1>
+
+<% @listings.each do |listing| %>
+  <div class="listing">
+    <h2><%= link_to listing.title, listing_path(listing) %></h2>
+    <p><%= listing.description %></p>
+    <p>Price: <%= listing.price %></p>
+    <%= link_to 'Edit', edit_listing_path(listing) %> |
+    <%= link_to 'Delete', listing_path(listing), method: :delete, data: { confirm: 'Are you sure?' } %>
+  </div>
+<% end %>
+
+<%= link_to 'New Listing', new_listing_path %>  <!-- Link to create a new listing -->
