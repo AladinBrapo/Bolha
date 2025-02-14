@@ -2,7 +2,7 @@
 service: bolha_3
 
 # Name of the container image.
-image: ghcr.io/aladinbrapo/bolha-2
+image: ghcr.io/aladinbrapo/bolha-3
 
 # Deploy to these servers.
 servers:
