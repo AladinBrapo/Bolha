@@ -26,13 +26,34 @@
   <body>
   <header>
     <nav>
-      <% if user_signed_in? %>
-        <p>Welcome, <%= current_user.email %>!</p>
-        <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-      <% else %>
-        <%= link_to 'Login', new_user_session_path %> | 
-        <%= link_to 'Sign Up', new_user_registration_path %>
-      <% end %>
+      <div class="nav-left">
+        <ul class="nav-links">
+          <li><%= link_to 'Domov', root_path %></li>
+          <li><%= link_to 'Oglasi', listings_path %></li>
+          <% if user_signed_in? %>
+            <li><%= link_to 'Moj Profil', edit_user_registration_path %></li>
+            <li><%= link_to 'Dodaj Oglas', new_listing_path %></li>
+          <% end %>
+        </ul>
+      </div>
+
+      <div class="nav-right">
+        <form method="get" action="<%= listings_path %>">
+          <input type="text" name="query" placeholder="Išči oglase..." value="<%= params[:query] %>">
+          <button type="submit">Išči</button>
+        </form>
+
+        <% if user_signed_in? %>
+          <span class="user-email">Welcome, <%= current_user.email %>!</span>
+          <%= link_to 'Odjava', destroy_user_session_path, method: :delete, class: "logout-btn" %>
+        <% else %>
+          <%= link_to 'Prijava', new_user_session_path %> |
+          <%= link_to 'Registracija', new_user_registration_path %>
+        <% end %>
+      </div>
+
+      <!-- Hamburger meni za mobilne naprave -->
+      <button class="hamburger" onclick="toggleMenu()">☰</button>
     </nav>
   </header>
     <%= yield %>

@@ -1,4 +1,7 @@
 <h1><%= @listing.title %></h1>
+<% if @listing.image.attached? %>
+  <img src="<%= url_for(@listing.image) %>" alt="Slika oglasa">
+<% end %>
 <p><%= @listing.description %></p>
 <p>Price: <%= @listing.price %></p>
 

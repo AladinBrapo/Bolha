@@ -3,3 +3,9 @@ import "@hotwired/turbo-rails"
 import "controllers"
 import Rails from "rails-ujs"
 Rails.start()
+
+function toggleMenu() {
+    document.querySelector(".nav-links").classList.toggle("active");
+    document.querySelector(".nav-right").classList.toggle("active");
+  }
+  

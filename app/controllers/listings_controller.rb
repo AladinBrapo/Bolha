@@ -2,7 +2,11 @@ class ListingsController < ApplicationController
     before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]  # Ensure only authenticated users can create, edit, or delete listings
 
     def index
-        @listings = Listing.all
+        @listings = if params[:query].present?
+            Listing.where("title ILIKE ?", "%#{params[:query]}%")
+          else
+            Listing.all
+          end
     end
 
     def show
