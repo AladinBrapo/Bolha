@@ -37,12 +37,14 @@
         </ul>
       </div>
 
-      <div class="nav-right">
+      <div class="nav-middle">
         <form method="get" action="<%= listings_path %>">
           <input type="text" name="query" placeholder="Išči oglase..." value="<%= params[:query] %>">
           <button type="submit">Išči</button>
         </form>
+      </div>
 
+      <div class="nav-right">
         <% if user_signed_in? %>
           <span class="user-email">Welcome, <%= current_user.email %>!</span>
           <%= link_to 'Odjava', destroy_user_session_path, method: :delete, class: "logout-btn" %>

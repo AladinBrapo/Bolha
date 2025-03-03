@@ -1,121 +1,115 @@
 /* Osnovni stil za header */
 header {
-    background: #222;
-    padding: 15px 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-bottom: 2px solid #444;
-  }
-  
-  /* Navigacija */
-  header nav {
-    width: 100%;
-    max-width: 1200px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  header .nav-left .nav-links {
-    display: flex;
-    gap: 15px;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  header .nav-links li {
-    display: inline;
-  }
-  
-  header .nav-links a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    padding: 8px 12px;
-  }
-  
-  header .nav-links a:hover {
-    background: #333;
-    border-radius: 5px;
-  }
-  
-  /* Iskalnik */
-  header form {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  
-  header form input {
-    padding: 6px;
-    border: 1px solid #777;
-    border-radius: 5px;
-    background: #333;
-    color: white;
-  }
-  
-  header form button {
-    color: white;
-    border: none;
-    padding: 6px 12px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  /* Uporabniški podatki */
-  .user-email {
-    color: white;
-    margin-left: 10px;
-  }
-  
-  /* Logout gumb */
-  .logout-btn {
-    background: red;
-    padding: 5px 10px;
-    border-radius: 5px;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  .logout-btn:hover {
-    background: darkred;
-  }
-  
-  /* Hamburger meni */
-  .hamburger {
-    display: none;
-    font-size: 24px;
-    background: none;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-  
-  /* Responsive: Mobilne naprave */
-  @media (max-width: 768px) {
-    .nav-left .nav-links,
-    .nav-right {
+  padding: 15px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid #444;
+}
+
+/* Navigacija */
+header nav {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .nav-left .nav-links {
+  display: flex;
+  gap: 15px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+header .nav-links li {
+  display: inline;
+}
+
+header .nav-links a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  padding: 8px 12px;
+}
+
+header .nav-links a:hover {
+  border-radius: 5px;
+}
+
+/* Iskalnik */
+header form {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+header form input {
+  padding: 6px;
+  border: 1px solid #777;
+  border-radius: 5px;
+}
+
+header form button {
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Uporabniški podatki */
+.user-email {
+  color: white;
+  margin-left: 10px;
+}
+
+/* Logout gumb */
+.logout-btn {
+  background: red;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.logout-btn:hover {
+  background: darkred;
+}
+
+/* Hamburger meni */
+.hamburger {
+  display: none;
+  font-size: 24px;
+  background: none;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* Responsive: Mobilne naprave */
+@media (max-width: 768px) {
+  .nav-left .nav-links,
+  .nav-right, .nav-middle {
       display: none;
       flex-direction: column;
       align-items: center;
-      background: #222;
       position: absolute;
       top: 60px;
       left: 0;
       right: 0;
       padding: 15px 0;
-    }
-  
-    .nav-left .nav-links.active,
-    .nav-right.active {
-      display: flex;
-    }
-  
-    .hamburger {
-      display: block;
-    }
   }
-  
+
+  .nav-left .nav-links.active,
+  .nav-right.active, .nav-middle.active {
+      display: flex;
+  }
+
+  .hamburger {
+      display: block;
+  }
+}
