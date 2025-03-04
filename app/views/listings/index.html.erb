@@ -4,9 +4,11 @@
   <div class="listing">
     <h2><%= link_to listing.title, listing_path(listing) %></h2>
     <p><%= listing.description %></p>
-    <p>Price: <%= listing.price %></p>
-    <%= link_to 'Edit', edit_listing_path(listing) %> |
-    <%= link_to 'Delete', listing_path(listing), method: :delete, data: { confirm: 'Are you sure?' } %>
+    <p>Price: <%= listing.price %>€</p>
+    <% if user_signed_in? && listing.user == current_user %>
+      <%= link_to 'Edit', edit_listing_path(listing) %> |
+      <%= link_to 'Delete', listing_path(listing), method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
   </div>
 <% end %>
 

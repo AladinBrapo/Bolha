@@ -13,6 +13,11 @@ class ListingsController < ApplicationController
 
     def show
         @listing = Listing.find(params[:id])
+
+        respond_to do |format|
+            format.html  # Make sure HTML responses are allowed
+            format.json { render json: @listing }
+        end
     end
 
     def new
@@ -48,6 +53,14 @@ class ListingsController < ApplicationController
     end
 
     private
+
+    def correct_user
+        @listing = Listing.find(params[:id])
+        unless @listing.user == current_user
+          flash[:alert] = "You are not authorized to perform this action."
+          redirect_to listings_path
+        end
+    end
 
     def listing_params
         params.require(:listing).permit(:title, :description, :price, :category_id, :image).tap do |whitelisted|
