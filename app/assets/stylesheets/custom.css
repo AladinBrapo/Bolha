@@ -30,7 +30,6 @@ header .nav-links li {
 
 header .nav-links a {
   text-decoration: none;
-  color: white;
   font-weight: bold;
   padding: 8px 12px;
 }
@@ -53,7 +52,6 @@ header form input {
 }
 
 header form button {
-  color: white;
   border: none;
   padding: 6px 12px;
   border-radius: 5px;
@@ -62,7 +60,6 @@ header form button {
 
 /* Uporabniški podatki */
 .user-email {
-  color: white;
   margin-left: 10px;
 }
 
