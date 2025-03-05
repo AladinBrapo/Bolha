@@ -89,7 +89,7 @@ header form button {
 
 /* Responsive: Mobilne naprave */
 @media (max-width: 768px) {
-  .nav-left .nav-links,
+  .nav-left .nav-links li,
   .nav-right, .nav-middle {
       display: none;
       flex-direction: column;
@@ -101,12 +101,13 @@ header form button {
       padding: 15px 0;
   }
 
-  .nav-left .nav-links.active,
+  .nav-left .nav-links li.active,
   .nav-right.active, .nav-middle.active {
       display: flex;
   }
 
   .hamburger {
+      z-index: 3;
       display: block;
   }
 }
