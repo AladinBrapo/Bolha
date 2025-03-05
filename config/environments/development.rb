@@ -40,6 +40,18 @@ Rails.application.configure do
   # Set localhost to be used by links generated in mailer templates.
   config.action_mailer.default_url_options = { host: "localhost", port: 3000 }
 
+  # Mailer Settings
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.gmail.com',
+    port: 587,  # Standard port for TLS
+    domain: 'gmail.com',
+    user_name: 'jay.ram.celinscak.rom@gmail.com',  # Use environment variable
+    password: 'caeo fehr wldz wsyj',  # Use environment variable
+    authentication: 'plain',
+    enable_starttls_auto: true
+  }
+
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
