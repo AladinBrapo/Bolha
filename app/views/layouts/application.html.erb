@@ -49,7 +49,7 @@
           <span class="user-email">Welcome, <%= current_user.email %>!</span>
           <%= link_to 'Odjava', destroy_user_session_path, method: :delete, class: "logout-btn" %>
         <% else %>
-          <%= link_to 'Prijava', new_user_session_path %> |
+          <%= link_to 'Prijava', new_user_session_path %>
           <%= link_to 'Registracija', new_user_registration_path %>
         <% end %>
       </div>

@@ -1,21 +1,22 @@
-/* Osnovni stil za header */
+/* Basic Header Styles */
 header {
   padding: 15px 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-bottom: 2px solid #444;
 }
 
-/* Navigacija */
+/* Navigation Styling */
 header nav {
   width: 100%;
   max-width: 1200px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative; /* Allow proper positioning of the hamburger menu */
 }
 
+/* Left-side Navigation Links */
 header .nav-left .nav-links {
   display: flex;
   gap: 15px;
@@ -30,15 +31,16 @@ header .nav-links li {
 
 header .nav-links a {
   text-decoration: none;
-  font-weight: bold;
   padding: 8px 12px;
+  transition: background-color 0.3s ease; /* Smooth transition */
 }
 
 header .nav-links a:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Light hover effect */
   border-radius: 5px;
 }
 
-/* Iskalnik */
+/* Search Bar Styling */
 header form {
   display: flex;
   align-items: center;
@@ -49,6 +51,7 @@ header form input {
   padding: 6px;
   border: 1px solid #777;
   border-radius: 5px;
+  background-color: #fff; /* Ensure input fields are readable */
 }
 
 header form button {
@@ -56,14 +59,21 @@ header form button {
   padding: 6px 12px;
   border-radius: 5px;
   cursor: pointer;
+  background-color: #444; /* Subtle button background */
+  color: white;
 }
 
-/* Uporabniški podatki */
+header form button:hover {
+  background-color: #555; /* Hover effect for button */
+}
+
+/* User Information */
 .user-email {
   margin-left: 10px;
+  color: #fff; /* Ensure email text is white for contrast */
 }
 
-/* Logout gumb */
+/* Logout Button */
 .logout-btn {
   background: red;
   padding: 5px 10px;
@@ -71,43 +81,87 @@ header form button {
   color: white;
   text-decoration: none;
   font-weight: bold;
+  transition: background-color 0.3s ease;
 }
 
 .logout-btn:hover {
   background: darkred;
 }
 
-/* Hamburger meni */
+/* Hamburger Menu Styling */
 .hamburger {
   display: none;
-  font-size: 24px;
+  font-size: 28px;
   background: none;
-  color: white;
+  color: black;
   border: none;
   cursor: pointer;
+  padding: 10px;
+  z-index: 3;
 }
 
-/* Responsive: Mobilne naprave */
+/* Mobile Responsiveness */
 @media (max-width: 768px) {
-  .nav-left .nav-links li,
-  .nav-right, .nav-middle {
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      position: absolute;
-      top: 60px;
-      left: 0;
-      right: 0;
-      padding: 15px 0;
+  /* Change the layout to be vertical, top to bottom */
+  header nav {
+    flex-direction: column;
+    align-items: stretch; /* Ensure all elements stretch across the screen */
   }
 
-  .nav-left .nav-links li.active,
-  .nav-right.active, .nav-middle.active {
-      display: flex;
+  header nav a{
+    text-decoration: none !important;
+    padding: 0 !important;
   }
 
+  /* Hide nav links and right elements initially */
+  .nav-left .nav-links,
+  .nav-right,
+  .nav-middle {
+    display: none;
+    top: 60px; /* Adjust top to avoid overlap with header */
+    left: 0;
+    right: 0;
+    width: 100%; /* Ensure the elements take up the full width */
+    flex-direction: column;
+    align-items: stretch; /* Make the items stretch horizontally */
+    z-index: 2;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0s 0.3s; /* Fade-in effect */
+  }
+
+  /* Make nav items visible when the active class is added */
+  .nav-left .nav-links.active,
+  .nav-right.active,
+  .nav-middle.active {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease, visibility 0s 0s; /* Fade-in effect */
+  }
+
+  .nav-middle {
+    margin-bottom: 10px;
+  }
+
+  /* Styles for nav links */
+  .nav-left .nav-links li {
+    width: 100%; /* Make each list item take full width */
+    text-align: center;
+    display: block; /* Ensure each list item behaves as a block element */
+  }
+
+  /* Adjust hamburger button position */
   .hamburger {
-      z-index: 3;
-      display: block;
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    z-index: 3;
+  }
+
+  header .nav-left .nav-links {
+    gap: 0;
   }
 }
