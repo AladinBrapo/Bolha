@@ -164,4 +164,8 @@ header form button:hover {
   header .nav-left .nav-links {
     gap: 0;
   }
+
+  .logout-btn{
+    padding: 5px !important;
+  }
 }
