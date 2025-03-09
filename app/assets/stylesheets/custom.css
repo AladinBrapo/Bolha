@@ -9,7 +9,7 @@ header {
 /* Navigation Styling */
 header nav {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1500px;
   display: flex;
   justify-content: space-between;
   align-items: center;
