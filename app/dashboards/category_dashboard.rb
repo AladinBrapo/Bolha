@@ -1,34 +1,30 @@
 require "administrate/base_dashboard"
 
-class UserDashboard < Administrate::BaseDashboard
+class CategoryDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     id: Field::Number,
-    email: Field::String,
-    admin: Field::Boolean,
+    name: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime
   }.freeze
 
   COLLECTION_ATTRIBUTES = %i[
     id
-    email
-    admin
+    name
   ].freeze
 
   SHOW_PAGE_ATTRIBUTES = %i[
     id
-    email
-    admin
+    name
     created_at
     updated_at
   ].freeze
 
   FORM_ATTRIBUTES = %i[
-    email
-    admin
+    name
   ].freeze
 
-  def display_resource(user)
-    "User ##{user.id} - #{user.email}"
+  def display_resource(category)
+    "Category: #{category.name}"
   end
 end

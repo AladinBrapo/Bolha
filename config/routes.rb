@@ -16,9 +16,18 @@ Rails.application.routes.draw do
   root 'listings#index'
 
   namespace :admin do
-    resources :users
-    resources :posts
+    resources :users, only: [:index, :edit, :update, :destroy] do
+      member do
+          patch :promote
+        end
+    end
+    resources :listings do
+      member do
+        patch :approve
+      end
+    end
+    resources :categories, only: [:index, :new, :create, :edit, :update, :destroy]
     root to: "dashboard#index"
-    
   end
+  
 end

@@ -1,0 +1,22 @@
+<h1>Manage Users</h1>
+
+<table>
+  <tr>
+    <th>Email</th>
+    <th>Admin</th>
+    <th>Actions</th>
+  </tr>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.email %></td>
+      <td><%= user.admin? ? "Yes" : "No" %></td>
+      <td>
+        <%= link_to "Edit", edit_admin_user_path(user) %> |
+        <%= link_to "Delete", admin_user_path(user), method: :delete, data: { confirm: "Are you sure?" } %>
+        <% unless user.admin? %>
+          | <%= link_to "Promote to Admin", promote_admin_user_path(user), method: :patch %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>

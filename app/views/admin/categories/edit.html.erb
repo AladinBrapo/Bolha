@@ -1,0 +1,14 @@
+<h1>Edit Category</h1>
+
+<%= form_for [:admin, @category] do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.submit "Update Category" %>
+  </div>
+<% end %>
+
+<%= link_to "Back to Categories", admin_categories_path %>

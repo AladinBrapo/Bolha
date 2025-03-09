@@ -1,0 +1,23 @@
+<h1>Manage Listings</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Approved</th>
+    <th>Actions</th>
+  </tr>
+
+  <% @listings.each do |listing| %>
+    <tr>
+      <td><%= listing.title %></td>
+      <td><%= listing.approved ? "Yes" : "No" %></td>
+      <td>
+        <%= link_to "Edit", edit_admin_listing_path(listing) %> |
+        <%= link_to "Delete", admin_listing_path(listing), method: :delete, data: { confirm: "Are you sure?" } %> |
+        <% unless listing.approved %>
+          <%= link_to "Approve", approve_admin_listing_path(listing), method: :patch %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>

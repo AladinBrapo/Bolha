@@ -1,0 +1,29 @@
+<h1>Edit Listing</h1>
+
+<%= form_for [:admin, @listing] do |f| %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+
+  <div>
+    <%= f.label :price %>
+    <%= f.text_field :price %>
+  </div>
+
+  <div>
+    <%= f.label :approved %>
+    <%= f.check_box :approved %>
+  </div>
+
+  <div>
+    <%= f.submit "Update Listing" %>
+  </div>
+<% end %>
+
+<%= link_to "Back to Listings", admin_listings_path %>
