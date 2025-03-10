@@ -8,10 +8,11 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  protect_from_forgery with: :null_session, if: -> { request.format.json? }
+  
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_in, keys: [:email, :password])
-  end
-
+    devise_parameter_sanitizer.permit(:sign_in, keys: [:email, :password, :remember_me])
+  end  
 
   def after_sign_in_path_for(resource)
     if resource.admin?
