@@ -15,13 +15,12 @@ These instructions will get you a copy of the project up and running on your loc
 
 What things you need to install the software and how to install them. Also some webisites for hosting purpouses.
 
-```
 Visual Studio Code (or some code editor for changing and viewing code) https://code.visualstudio.com/download
 Github Desktop https://desktop.github.com/download/
 Ubuntu installed localy from Microsoft Store https://apps.microsoft.com/detail/9PDXGNCFSCZV?hl=en-us&gl=SI&ocid=pdpshare
 Render (or other hosting service) https://render.com/
 Neoserv (or other domain services) https://www.neoserv.si/?gad_source=1&gclid=CjwKCAjwvr--BhB5EiwAd5YbXvJz4_sR-nHii0E9GDt-VQWJ4qXbtnk8WtcrtnHmZHtX1bJENK78axoCCbUQAvD_BwE
-```
+
 
 ### Installing
 
