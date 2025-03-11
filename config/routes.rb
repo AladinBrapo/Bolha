@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
-  resources :listings  # This automatically creates routes for listings (index, show, new, create, edit, update, destroy)
+  resources :listings do
+    resources :messages, only: [:create]
+  end
   devise_for :users
   resources :categories, only: [:show] do
     resources :listings, only: [:index]
@@ -25,7 +27,6 @@ Rails.application.routes.draw do
         end
     end
     resources :listings do
-      resources :messages, only: [:create]
       member do
         patch :approve
       end

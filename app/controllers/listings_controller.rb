@@ -1,6 +1,7 @@
 class ListingsController < ApplicationController
     before_action :authenticate_user!, only: [:new, :edit, :destroy]  # Ensure only authenticated users can create, edit, or delete listings
     before_action :correct_user, only: [:edit, :destroy]
+    before_action :set_listing, only: [:show]
     
     # app/controllers/listings_controller.rb
     def index
@@ -17,6 +18,7 @@ class ListingsController < ApplicationController
     end  
 
     def show
+        @message = Message.new
         @listing = Listing.find(params[:id])
 
         respond_to do |format|
@@ -71,6 +73,10 @@ class ListingsController < ApplicationController
         params.require(:listing).permit(:title, :description, :price, :category_id, :image).tap do |whitelisted|
             whitelisted[:price] = whitelisted[:price].to_f if whitelisted[:price].present?
         end
+    end
+
+    def set_listing
+        @listing = Listing.find(params[:id])
     end
 end
   
