@@ -1,28 +1,3 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
 # Bolha
 
 ## Table of Contents
@@ -31,20 +6,21 @@ Things you may want to cover:
 + [Usage](#usage)
 
 ## About <a name = "about"></a>
-Website about recipes. People will be able to find new recipes and add their own delicious recipes here. They will also be able to rate them with stars. It is made with Tailwind and responsive for mobile and desktop. Design was made in Figma
+Website representing Bolha. People can post their stuff for sale on this webpage. People will be able to buy and sell interesting items. It was made in ruby on rails. It runs on Render hosting service with a domain from Neoserv.
 
 ## Getting Started <a name = "getting_started"></a>
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites
 
-What things you need to install the software and how to install them.
+What things you need to install the software and how to install them. Also some webisites for hosting purpouses.
 
 ```
-Figma https://www.figma.com/downloads/
 Visual Studio Code (or some code editor for changing and viewing code) https://code.visualstudio.com/download
 Github Desktop https://desktop.github.com/download/
-Xampp or a live server (NEOSERV for example) https://www.apachefriends.org/download.html
+Ubuntu installed localy from Microsoft Store https://apps.microsoft.com/detail/9PDXGNCFSCZV?hl=en-us&gl=SI&ocid=pdpshare
+Render (or other hosting service) https://render.com/
+Neoserv (or other domain services) https://www.neoserv.si/?gad_source=1&gclid=CjwKCAjwvr--BhB5EiwAd5YbXvJz4_sR-nHii0E9GDt-VQWJ4qXbtnk8WtcrtnHmZHtX1bJENK78axoCCbUQAvD_BwE
 ```
 
 ### Installing
@@ -63,15 +39,13 @@ Pulling the files
 You pull these files in GitHub Desktop and open them in your Visual Studio code to edit and view
 ```
 
-Extracting the files
+Deploying the project
 
 ```
-You extract these files into your server.
-The Recepti.SQL is code for database, which you import into your database in your server.
-In the FigmaLink.md you can find my Figma design, from which is this website based on.
+This project was created in Ruby on Rails. You need to have Ruby 3.3.7 version and Rails 8.0.1 version. In deploy.yml file you need to configure the settings for your webiste. You need to create your .env file Where you will have your GitHub token stored. After that you need to put your admin email and pass in render-build.sh which will be used in seed.rb file. After that you deploy it on your hosting website where you connect it with your domain.
 ```
 
 ## Usage <a name = "usage"></a>
 
-To access the full website, you access it through your server on which everything should work, if you followed the instructions. To view and edit code from the website, you can edit it in the server or VS Code. If you edit it in either, you have to copy it to the other and save on both, so they are the same. In Figma you can also edit the design and get the code through plugin Figma to Code, which is in Dev mode in Figma. There you select the Tailwind option, because this code is using tailwind styling. 
+To access the full website, you access it through your server on which everything should work, if you followed the instructions. To view and edit code from the website, you can edit it in the server or VS Code. If you change anything in the code and deploy again, it will reset your database. You need to have tasks in render-build.sh or use a disk on the Render hosting.
 Hope you will be able to access the code and use it :)
