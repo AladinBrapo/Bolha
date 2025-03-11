@@ -5,12 +5,13 @@
 # db/seeds.rb
 
 # Ensure that the admin account is created if it doesn't exist
-admin_email = 'jayram.celinscak@scv.si'
-admin_password = ENV['ADMIN_PASSWORD']  # Make sure to change this for production
+user_email = 'jayram.celinscak@scv.si'
+user_password = ENV['ADMIN_PASSWORD']  # Make sure to change this for production
 
-Admin.find_or_create_by!(email: admin_email) do |admin|
-  admin.password = admin_password
-  admin.password_confirmation = admin_password
+User.find_or_create_by!(email: user_email) do |user|
+    user.password = user_password
+  user.password_confirmation = user_password
+  user.admin = true
 end
 
 categories = [
