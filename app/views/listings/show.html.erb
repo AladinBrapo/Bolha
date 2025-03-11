@@ -5,6 +5,17 @@
 <p><%= @listing.description %></p>
 <p>Price: <%= @listing.price %>€</p>
 
+<h3>Pošlji sporočilo lastniku oglasa</h3>
+<%= form_with model: @message, url: listing_messages_path(@listing), local: true do |form| %>
+  <div class="form-group">
+    <%= form.label :content, "Vaše sporočilo" %>
+    <%= form.text_area :content, rows: 5, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= form.submit "Pošlji sporočilo", class: "btn btn-primary" %>
+  </div>
+<% end %>
+
 <% if user_signed_in? && @listing.user == current_user %>
   <%= link_to 'Edit', edit_listing_path(@listing) %>
 <% end %>

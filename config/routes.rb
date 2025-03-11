@@ -25,6 +25,7 @@ Rails.application.routes.draw do
         end
     end
     resources :listings do
+      resources :messages, only: [:create]
       member do
         patch :approve
       end
