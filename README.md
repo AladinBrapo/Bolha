@@ -40,9 +40,8 @@ You pull these files in GitHub Desktop and open them in your Visual Studio code 
 
 Deploying the project
 
-```
 This project was created in Ruby on Rails. You need to have Ruby 3.3.7 version and Rails 8.0.1 version. In deploy.yml file you need to configure the settings for your webiste. You need to create your .env file Where you will have your GitHub token stored. After that you need to put your admin email and pass in render-build.sh which will be used in seed.rb file. After that you deploy it on your hosting website where you connect it with your domain.
-```
+
 
 ## Usage <a name = "usage"></a>
 
