@@ -4,8 +4,13 @@ class ListingsController < ApplicationController
     
     # app/controllers/listings_controller.rb
     def index
-        if params[:query].present?
+        if params[:query].present? && params[:category_id].present?
             @listings = Listing.where('LOWER(title) LIKE LOWER(?)', "%#{params[:query]}%")
+                               .where(category_id: params[:category_id])
+        elsif params[:query].present?
+            @listings = Listing.where('LOWER(title) LIKE LOWER(?)', "%#{params[:query]}%")
+        elsif params[:category_id].present?
+            @listings = Listing.where(category_id: params[:category_id])
         else
             @listings = Listing.all
         end

@@ -30,7 +30,15 @@
       <div class="nav-left">
         <ul class="nav-links">
           <li><%= link_to 'Domov', root_path %></li>
-          <li><%= link_to 'Oglasi', listings_path %></li>
+          <!-- Dropdown za Kategorije -->
+          <li class="dropdown">
+            <a href="#" class="dropbtn">Kategorije</a>
+            <div class="dropdown-content">
+              <% Category.all.each do |category| %>
+                <%= link_to category.name, category_listings_path(category) %>
+              <% end %>
+            </div>
+          </li>
           <% if user_signed_in? %>
             <li><%= link_to 'Moj Profil', edit_user_registration_path %></li>
             <li><%= link_to 'Dodaj Oglas', new_listing_path %></li>

@@ -11,6 +11,9 @@ Rails.application.routes.draw do
 
   resources :listings  # This automatically creates routes for listings (index, show, new, create, edit, update, destroy)
   devise_for :users
+  resources :categories, only: [:show] do
+    resources :listings, only: [:index]
+  end
 
   # Defines the root path route ("/")
   root 'listings#index'
